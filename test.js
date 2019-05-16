@@ -122,10 +122,10 @@ const set_up = {
         countries.country_names = countries.names_array();
         countries.countries_left = countries.names_array();
         countries.get_four_unique_countries();
-    },
+    },*/
 
     get_checked(arr1, arr2){ 
-        arr1.map((it)=>(it.checked) && arr2.push(it.value))*/
+        arr1.map((it)=>(it.checked) && arr2.push(it.value))
     },
 
     show_sub_class(e){
