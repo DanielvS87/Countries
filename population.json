@@ -1,0 +1,802 @@
+{
+    "asia":{
+        "population": 4557517165,
+        "regions":{
+            "southern_asia":{
+                "population": 1913668492,
+                "countries":{
+                    "afghanistan":{
+                        "population": 37209007,
+                        "capital": "kabul"
+                    },
+                    "bangladesh":{
+                        "population": 168065920,
+                        "capital": "dhaka"
+                    },
+                    "bhutan":{
+                        "population": 826229,
+                        "capital": "thimphu"
+                    },
+                    "india":{
+                        "population": 1368737513,
+                        "capital": "new_delhi"
+                    },
+                    "iran":{
+                        "population": 82820766,
+                        "capital": "tehran"
+                    },
+                    "maldives":{
+                        "population": 451738,
+                        "capital": "male"
+                    },
+                    "nepal":{
+                        "population": 29942018,
+                        "capital": "kathmandu"
+                    },
+                    "pakistan":{
+                        "population": 204596442,
+                        "capital": "islamabad"
+                    },
+                    "sri_lanka":{
+                        "population": 21018859,
+                        "capital": "sri_jayawardenepura_kotte"
+                    }
+                } 
+            },
+            "eastern_asia":{
+                "population": 1634604412,
+                "countries":{
+                    "china":{
+                        "population": 1419394544,
+                        "capital": "beijing"
+                    },
+                    "south_korea":{
+                        "population": 51315767,
+                        "capital": "seoul"
+                    },
+                    "north_korea":{
+                        "population": 25711875,
+                        "capital": "pjongyang"
+                    },
+                    "japan":{
+                        "population": 126898208,
+                        "capital": "tokyo"
+                    },
+                    "mongolia":{
+                        "population": 3160217,
+                        "capital": "ulaanbaatar"
+                    }
+                }
+            },
+            "south_eastern_asia":{
+                "population": 661468206,
+                "countries":{
+                    "brunei":{
+                        "population": 438650,
+                        "capital": "bandar_seri_begawan"
+                    },
+                    "cambodia":{
+                        "population": 16451041,
+                        "capital": "phnom_penh"
+                    },
+                    "indonesia":{
+                        "population": 269167365,
+                        "capital": "jakarta"
+                    },
+                    "laos":{
+                        "population": 7051012,
+                        "capital": "vientiane"
+                    },
+                    "malaysia":{
+                        "population": 32397223,
+                        "capital": "kuala lumpur"
+                    },
+                    "myanmar":{
+                        "population": 54272781,
+                        "capital": "naypyidaw"
+                    },
+                    "philippines":{
+                        "population": 107892131,
+                        "capital": "manila"
+                    },
+                    "singapore":{
+                        "population": 5858304,
+                        "capital": "singapore"
+                    },
+                    "thailand":{
+                        "population": 69288569,
+                        "capital": "bangkok"
+                    },
+                    "east_timor":{
+                        "population": 1348489,
+                        "capital": "dili"
+                    },
+                    "vietnam":{
+                        "population": 97302641,
+                        "capital": "hanoi"
+                    }
+                }
+            },
+            "western_asia":{
+                "population": 275055967,
+                "countries":{
+                    "armenia":{
+                        "population": 2936265,
+                        "capital": "yerevan"
+                    },
+                    "azerbaijan":{
+                        "population": 10002374,
+                        "capital": "baku"
+                    },
+                    "bahrain":{
+                        "population": 1630056,
+                        "capital": "manama"
+                    },
+                    "georgia":{
+                        "population": 3905723,
+                        "capital": "tblisi"
+                    },
+                    "iraq":{
+                        "population": 40266083,
+                        "capital": "baghdad"
+                    },
+                    "israel":{
+                        "population": 8566570,
+                        "capital": "jerusalem"
+                    },
+                    "jordan":{
+                        "population": 10045147,
+                        "capital": "amman"
+                    },
+                    "kuwait":{
+                        "population": 4239517,
+                        "capital": "kuwait_city"
+                    },
+                    "lebanon":{
+                        "population": 6064550,
+                        "capital": "beirut"
+                    },
+                    "oman":{
+                        "population": 4979237,
+                        "capital": "muscat"
+                    },
+                    "qatar":{
+                        "population": 2735963,
+                        "capital": "doha"
+                    },
+                    "saudi_arabia":{
+                        "population": 34059175,
+                        "capital": "riyadh"
+                    },
+                    "palestine":{
+                        "population": 5168905,
+                        "capital": "jerusalem_east"
+                    },
+                    "syria":{
+                        "population": 18471055,
+                        "capital": "damascus"
+                    },
+                    "turkey":{
+                        "population": 82830044,
+                        "capital": "ankara"
+                    },
+                    "united_arab_emirates":{
+                        "population": 9664546,
+                        "capital": "abu_dhabi"
+                    },
+                    "yemen":{
+                        "population": 29490757,
+                        "capital": "sana's"
+                    }
+                }
+            },
+            "central_asia":{
+                "population": 72720088,
+                "countries":{
+                    "kazakhstan": {
+                        "population": 18566412,
+                        "capital": "nur_sultan"
+                    },
+                    "kyrgyzstan": {
+                        "population": 6207248,
+                        "capital": "bishkek"
+                    },
+                    "tajikistan": {
+                        "population": 9267353,
+                        "capital": "dushanbe"
+                    },
+                    "turkmenistan": {
+                        "population": 5930458,
+                        "capital": "ashgabat"
+                    },
+                    "uzbekistan": {
+                        "population": 32748617,
+                        "capital": "tashkent"
+                    }
+                }
+            }
+        }
+    },
+    "americas":{
+        "population": 1018524863,
+        "regions":{
+            "north_america":{
+                "population": 366018651,
+                "countries":{
+                    "canada":{
+                        "population" : 37235907,
+                        "capital": "ottawa"
+                    },
+                    "united_states":{
+                        "population" : 328782744,
+                        "capital": "washington_dc"
+                    }
+                }
+            },
+            "central_america":{
+                "population" : 181582894,
+                "countries":{
+                    "mexico":{
+                        "population": 132117825,
+                        "capital": "mexico_city"
+                    },
+                    "belize":{
+                        "population": 389202,
+                        "capital": "belmopan"
+                    },
+                    "costa_rica":{
+                        "population": 4993210,
+                        "capital": "san_jose"
+                    },
+                    "el_salvador":{
+                        "population": 6440946,
+                        "capital": "san_salvador"
+                    },
+                    "guatemala":{
+                        "population": 17533301,
+                        "capital": "guatemala_city"
+                    },
+                    "honduras":{
+                        "population": 9548451,
+                        "capital": "tegucigalpa"
+                    },
+                    "nicaragua":{
+                        "population": 6342288,
+                        "capital": "managua"
+                    },
+                    "panama":{
+                        "population": 4217671,
+                        "capital": "pamana_city"
+                    }
+                }
+            },
+            "south_america":{
+                "population": 431584880,
+                "countries":{
+                    "argentina":{
+                        "population": 45101781,
+                        "capital": "buenos_aires"
+                    },
+                    "bolivia":{
+                        "population": 11379861,
+                        "capital": "sucre"
+                    },
+                    "brazil":{
+                        "population": 212392717,
+                        "capital": "brasilia"
+                    },
+                    "chile":{
+                        "population": 18318033,
+                        "capital": "santiago"
+                    },
+                    "colombia":{
+                        "population": 49798270,
+                        "capital": "bogota"
+                    },
+                    "ecuador":{
+                        "population": 17068741,
+                        "capital": "quito"
+                    },
+                    "guyana":{
+                        "population": 785920,
+                        "capital": "georgetown"
+                    },
+                    "paraguay":{
+                        "population": 6970613,
+                        "capital": "asuncion"
+                    },
+                    "peru":{
+                        "population": 32933835,
+                        "capital": "lima"
+                    },
+                    "suriname":{
+                        "population": 573085,
+                        "capital": "paramaribo"
+                    },
+                    "uruguay":{
+                        "population": 3482156,
+                        "capital": "montevideo"
+                    },
+                    "venezuela":{
+                        "population": 32779868,
+                        "capital": "caracas"
+                    }
+                }
+            },
+            "caribbean":{
+                "population": 39338438,
+                "countries":{
+                    "antigua_and_barbuda":{
+                        "population": 104084,
+                        "capital": "st_john's"
+                    },
+                    "bahamas":{
+                        "population": 403095,
+                        "capital": "nassau"
+                    },
+                    "barbados":{
+                        "population": 287010,
+                        "capital": "bridgetown"
+                    },
+                    "cuba":{
+                        "population": 11492046,
+                        "capital": "havana"
+                    },
+                    "dominica":{
+                        "population": 74679,
+                        "capital": "roseau"
+                    },
+                    "dominican_republic":{
+                        "population": 10996774,
+                        "capital": "santo_domingo"
+                    },
+                    "grenada":{
+                        "population": 108825,
+                        "capital": "st_george's"
+                    },
+                    "haiti":{
+                        "population": 11242856,
+                        "capital": "port_au_prince"
+                    },
+                    "jamaica":{
+                        "population": 2906339,
+                        "capital": "kingston"
+                    },
+                    "saint_kitts_and_nevis":{
+                        "population": 56345,
+                        "capital": "basseterre"
+                    },
+                    "saint_lucia":{
+                        "population": 180454,
+                        "capital": "castries"
+                    },
+                    "saint_vincent_and_the_grenadines":{
+                        "population": 110488,
+                        "capital": "kingstown"
+                    },
+                    "trinidad_and_tobago":{
+                        "population": 1375443,
+                        "capital": "port_of_spain"
+                    }
+                }
+            }
+        }
+    },
+    "africa":{
+        "population":1319321776,
+        "regions":{
+            "northern_africa":{
+                "population": 241215687,
+                "countries":{
+                    "algeria":{
+                        "population": 42679018,
+                        "capital": "algiers"
+                    },
+                    "egypt":{
+                        "population": 101168745,
+                        "capital": "cairo"
+                    },
+                    "libya":{
+                        "population": 6569864,
+                        "capital": "tripoli"
+                    },
+                    "morocco":{
+                        "population": 36635156,
+                        "capital": "rabat"
+                    },
+                    "sudan":{
+                        "population": 42379736,
+                        "capital": "khartoum"
+                    },
+                    "tunisia":{
+                        "population": 11783168,
+                        "capital": "tunis"
+                    }
+                }
+            },
+            "eastern_africa":{
+                "population": 445451279,
+                "countries":{
+                    "burundi":{
+                        "population": 11575964,
+                        "capital": "gitega"
+                    },
+                    "comoros":{
+                        "population": 850910,
+                        "capital": "moroni"
+                    },
+                    "djibouti":{
+                        "population": 985690,
+                        "capital": "djibouti_city"
+                    },
+                    "eritrea":{
+                        "population": 5309659,
+                        "capital": "asmara"
+                    },
+                    "ethiopia":{
+                        "population": 110135635,
+                        "capital": "addis_ababa"
+                    },
+                    "kenya":{
+                        "population": 52214791,
+                        "capital": "nairobe"
+                    },
+                    "madagascar":{
+                        "population": 26969642,
+                        "capital": "antananarivo"
+                    },
+                    "malawi":{
+                        "population": 19718743,
+                        "capital": "lilongwe"
+                    },
+                    "mauritius":{
+                        "population": 1271368,
+                        "capital": "port_louis"
+                    },
+                    "mayotte":{
+                        "population": 270372,
+                        "capital": "mamoudzou"
+                    },
+                    "mozambique":{
+                        "population": 31408823,
+                        "capital": "maputo"
+                    },
+                    "reunion":{
+                        "population": 889918,
+                        "capital": "saint_denis"
+                    },
+                    "rwanda":{
+                        "population": 12794412,
+                        "capital": "kigali"
+                    },
+                    "seychelles":{
+                        "population": 95702,
+                        "capital": "victoria"
+                    },
+                    "somalia":{
+                        "population": 15636171,
+                        "capital": "mogadishu"
+                    },
+                    "south_sudan":{
+                        "population": 13263184,
+                        "capital": "juba"
+                    },
+                    "uganda":{
+                        "population": 45711874,
+                        "capital": "kampala"
+                    },
+                    "tanzania":{
+                        "population": 60913557,
+                        "capital": "dodoma"
+                    },
+                    "zambia":{
+                        "population": 18137369,
+                        "capital": "lusaka"
+                    },
+                    "zimbabwe":{
+                        "population": 17297495,
+                        "capital": "harare"
+                    }
+                }
+            },
+            "western_africa":{
+                "population":392172018,
+                "countries":{
+                    "benin":{
+                        "population": 11801595,
+                        "capital": "porto_novo"
+                    },
+                    "burkina_faso":{
+                        "population": 20321560,
+                        "capital": "ouagadougou"
+                    },
+                    "cape_verde":{
+                        "population": 560349,
+                        "capital": "praia"
+                    },
+                    "gambia":{
+                        "population": 2228075,
+                        "capital": "banjul"
+                    },
+                    "ghana":{
+                        "population": 30096970,
+                        "capital": "accra"
+                    },
+                    "guinea":{
+                        "population": 13398180,
+                        "capital": "conakry"
+                    },
+                    "guinea_bissau":{
+                        "population": 1953723,
+                        "capital": "bissau"
+                    },
+                    "ivory_coast":{
+                        "population": 25531083,
+                        "capital": "yamoussoukro"
+                    },
+                    "liberia":{
+                        "population": 4977720,
+                        "capital": "monrovia"
+                    },
+                    "mali":{
+                        "population": 19689140,
+                        "capital": "bamako"
+                    },
+                    "mauritania":{
+                        "population": 4661149,
+                        "capital": "nouakchott"
+                    },
+                    "niger":{
+                        "population": 23176691,
+                        "capital": "niamey"
+                    },
+                    "nigeria":{
+                        "population": 200962417,
+                        "capital": "abuja"
+                    },
+                    "senegal":{
+                        "population": 16743859,
+                        "capital": "dakar"
+                    },
+                    "sierra_leone":{
+                        "population": 7883123,
+                        "capital": "freetown"
+                    },
+                    "togo":{
+                        "population": 8186384,
+                        "capital": "lome"
+                    }
+                }
+            },
+            "central_africa":{
+                "population": 173692967,
+                "countries":{
+                    "angola":{
+                        "population":31787566,
+                        "capital":"luanda"
+                    },
+                    "cameroon":{
+                        "population":25312993,
+                        "capital":"yaounde"
+                    },
+                    "central_african_republic":{
+                        "population":4825711,
+                        "capital":"bangui"
+                    },
+                    "chad":{
+                        "population":15814345,
+                        "capital":"n'Djamena"
+                    },
+                    "congo":{
+                        "population":5542197,
+                        "capital":"brazzaville"
+                    },
+                    "democratic_republic_of_the_congo":{
+                        "population":86727573,
+                        "capital":"kinshasa"
+                    },
+                    "equitorial_guinea":{
+                        "population":1360104,
+                        "capital":"malabo"
+                    },
+                    "gabon":{
+                        "population":2109099,
+                        "capital":"libreville"
+                    },
+                    "sao_tome_and_principe":{
+                        "population":213379,
+                        "capital":"sao_tome"
+                    }
+                }
+            },
+            "southern_africa":{
+                "population":66789825,
+                "countries":{
+                    "botswana":{
+                        "population":2374636,
+                        "capital":"gaborone"
+                    },
+                    "lesotho":{
+                        "population":2292682,
+                        "capital":"maseru"
+                    },
+                    "namibia":{
+                        "population":2641996,
+                        "capital":"windhoek"
+                    },
+                    "south_africa":{
+                        "population":58065097,
+                        "capital":"pretoria"
+                    },
+                    "swaziland":{
+                        "population":1415414,
+                        "capital":"lobamba"
+                    }
+                }
+            }
+        }
+    },
+    "oceania":{
+        "population": 41878254,
+        "regions":{
+            "new_zealand_and_australia":{
+                "population":29833123,
+                "countries":{
+                    "australia":{
+                        "population":25046496,
+                        "capital":"canberra"
+                    },
+                    "new_zealand":{
+                        "population": 4786627,
+                        "capital": "wellington"
+                    }
+                }
+            },
+            "micronesia":{
+                "population": 536579,
+                "countries":{
+                    "guam":{
+                        "population":167245,
+                        "capital":"hagatna" 
+                    },                
+                    "kiribati":{
+                        "population":120428,
+                        "capital":"south_tarawa" 
+                    },
+                    "marshall_islands":{
+                        "population": 53211,
+                        "capital":"majuro" 
+                    },
+                    "micronesia":{
+                        "population": 106983,
+                        "capital":"palikir" 
+                    },
+                    "nauru":{
+                        "population": 11260,
+                        "capital":"yaren" 
+                    },
+                    "northern_mariana_islands":{
+                        "population": 55246,
+                        "capital":"saipan" 
+                    },
+                    "palau":{
+                        "population": 22206,
+                        "capital":"ngerulmud" 
+                    }
+                }
+            },
+            "polynesia":{
+                "population": 796623,
+                "countries":{
+                    "american_samoa":{
+                        "population":55727,
+                        "capital":"pago_pago"
+                    },
+                    "cook_islands":{
+                        "population": 17462,
+                        "capital":"avarua"
+                    },
+                    "french_polynesia":{
+                        "population": 288506,
+                        "capital":"papeete"
+                    },
+                    "niue":{
+                        "population": 1628,
+                        "capital":"alofi"
+                    },
+                    "samoa":{
+                        "population": 298909,
+                        "capital":"apia"
+                    },
+                    "tokelau":{
+                        "population": 1340,
+                        "capital":"fakaofo"
+                    },
+                    "tonga":{
+                        "population": 110041,
+                        "capital":"nuku'alofa"
+                    },
+                    "tuvalu":{
+                        "population": 11393,
+                        "capital":"funafuti"
+                    },
+                    "wallis_and_futuna_islands":{
+                        "population": 11617,
+                        "capital":"mata_utu"
+                    }
+                }
+            },
+            "melanesia":{
+                "population": 10711929,
+                "countries":{
+                    "fiji":{
+                        "population": 918757,
+                        "capital": "suva"
+                    },
+                    "new_caledonia":{
+                        "population": 283376,
+                        "capital": "noumea"
+                    },
+                    "papua_new_guinea":{
+                        "population": 8586525,
+                        "capital": "port_moresby"
+                    },
+                    "solomon_islands":{
+                        "population": 635254,
+                        "capital": "honiara"
+                    },
+                    "vanuatu":{
+                        "population": 288017,
+                        "capital": "port_vila"
+                    }
+                }
+            }
+        }
+    },
+    "europe":{
+        "population": 0,
+        "regions":{
+            "western_europe":{
+                "population": 0,
+                "countries":{
+                    "austria":{
+                        "population":0,
+                        "capital":"vienna"
+                    },
+                    "belgium":{
+                        "population":0,
+                        "capital":"brussels"
+                    },
+                    "france":{
+                        "population":0,
+                        "capital":"paris"
+                    },
+                    "germany":{
+                        "population":0,
+                        "capital":"berlin"
+                    },
+                    "liechtenstein":{
+                        "population":0,
+                        "capital":""
+                    },
+                    "luxembourg":{
+                        "population":0,
+                        "capital":""
+                    },
+                    "monaco":{
+                        "population":0,
+                        "capital":""
+                    },
+                    "netherlands":{
+                        "population":0,
+                        "capital":"amsterdam"
+                    },
+                    "switzerland":{
+                        "population":0,
+                        "capital":"bern"
+                    }
+                }
+            }
+        }
+    }
+}
