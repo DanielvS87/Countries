@@ -105,7 +105,7 @@ const set_up = {
         coun = output;
         })
         console.log(coun);
-        /*Object.entries(coun).forEach((entry)=>{
+        Object.entries(coun).forEach((entry)=>{
             let continent = entry[0];
             (this.checked_continents).includes(entry[0]) && Object.entries(entry[1].regions).forEach((entry)=>{
                 let region = entry[0];
@@ -122,7 +122,7 @@ const set_up = {
         countries.country_names = countries.names_array();
         countries.countries_left = countries.names_array();
         countries.get_four_unique_countries();
-    },*/
+    },
 
     get_checked(arr1, arr2){ 
         arr1.map((it)=>(it.checked) && arr2.push(it.value))
