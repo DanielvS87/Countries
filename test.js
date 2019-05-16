@@ -195,4 +195,4 @@ const animations = {
 // }
 
 //countries.get_four_unique_countries();
-//set_up.addListener();
+set_up.addListener();
