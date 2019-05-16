@@ -104,7 +104,8 @@ const set_up = {
            
         coun = output;
         })
-        Object.entries(coun).forEach((entry)=>{
+        console.log(coun);
+        /*Object.entries(coun).forEach((entry)=>{
             let continent = entry[0];
             (this.checked_continents).includes(entry[0]) && Object.entries(entry[1].regions).forEach((entry)=>{
                 let region = entry[0];
@@ -124,7 +125,7 @@ const set_up = {
     },
 
     get_checked(arr1, arr2){ 
-        arr1.map((it)=>(it.checked) && arr2.push(it.value))
+        arr1.map((it)=>(it.checked) && arr2.push(it.value))*/
     },
 
     show_sub_class(e){
@@ -194,4 +195,4 @@ const animations = {
 // }
 
 //countries.get_four_unique_countries();
-set_up.addListener();
+//set_up.addListener();
