@@ -9,11 +9,20 @@
     <script type="application/json" src="./population.json"></script>
     <style>
         *{
+            padding:0;
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .wrapper{
-            width: 80%;
+            width: 100%;
+            overflow: hidden;
         }
         .subclass{
             margin-left: 20px;
@@ -36,7 +45,7 @@
             padding: 10px 30px 10px 10px;
         }
 
-        #selection{
+        /* #selection{
             width: 80%;
             font-size: 1.5em;
             position: absolute;
@@ -48,17 +57,18 @@
             justify-items: flex-start;
             height: auto;
             background: #999;
-        } 
+        }  */
         #answer_section{
-            width:50%;
-            height:500px;
+            background: rgb(54, 54, 168);
+            width:850px;
+            height:100%;
             position:absolute;
             left:50%;
-            top:50%;
             display: flex;
             flex-direction: column;
-            transform: translate(-50%, -500%);
-            background: lightcoral;
+            transform : translate(-50%, 0%);
+            box-shadow: 0px 0px 2px rgba(51, 51, 51, 0.205);
+            z-index: 3;
         }
 
         #suggestion_list{
@@ -77,9 +87,81 @@
             grid-template-columns: 1fr 1fr;
             justify-items: center;
             align-items: center;
+            background: white;
+            box-shadow: 0px 0px 2px rgba(51, 51, 51, 0.205);
+        }
+        #country{
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 3em;
         }
 
         .answer{
+            opacity: 0;
+            position: relative;
+            border-bottom: 1px solid black;
+            text-align: center;
+            min-width: 220px;
+            height: 60px;
+            line-height: 40px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: black;
+            font-weight: 900;
+            font-size: 1.5em;
+        }
+
+        .answer::before, .answer::after{
+            height: 100%;
+            content: '';
+            background-color: transparent; 
+            position: absolute;
+        }
+
+        .answer::before{
+            right: 0px;
+            bottom: -1px;
+            border-right: 1px solid black;
+            border-top: 1px solid black; 
+            width:1px;
+            height: 0;
+        }
+        .answer::after{
+            height: 0%;
+            width: 1px;
+            left:-1px;
+            bottom:-1px;
+            border-left: 1px solid black;
+            border-top: 1px solid black; 
+        }
+
+        .answer:hover::after{
+            height: 100%;
+            width: 50%;
+            transition: height 200ms linear, width 200ms 200ms linear;
+        }
+
+        .answer:hover::before{
+            height: 100%;
+            width: 50%;
+            transition: height 200ms linear, width 200ms 200ms linear;
+        }
+
+        .answer:hover{
+            cursor: pointer;
+        }
+
+        #stats_section{
+            background: coral;
+            width:850px;
+            height:100%;
+            position:absolute;
+            left:50%;
+            transform : translate(-50%, 0%);
+            box-shadow: 0px 0px 2px rgba(51, 51, 51, 0.205);
+        }
+
+        /* .answer{
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -114,7 +196,68 @@
             transition: left 500ms linear;
             left: 400px;
             cursor: pointer;
+        } */
+
+        #correct, #wrong{
+            opacity: 0;
+            width: 50px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
         }
+
+        #country{
+            margin-top: 40px;
+            color:white;
+            background: black;
+            box-shadow: 0px 0px 2px rgba(51, 51, 51, 0.205);
+        }
+
+        #selection{
+            padding: 15px;
+            background: rgb(10, 131, 10);
+            width:850px;
+            height:100%;
+            position:absolute;
+            left:50%;
+            top:0;
+            transform: translateX(-50%);
+            box-shadow: 0px 0px 2px rgba(51, 51, 51, 0.205);
+            z-index: 5;
+        }
+
+        #selection.moved{
+            transition: transform 200ms linear;
+            transform:translate(-50%,100%);
+        }
+
+        #answer_section.moved{
+            transform:translate(-50%,100%);
+            transition: transform 200ms linear;
+        }
+
+        @media only screen and (max-width: 850px) {
+        #selection {
+        width: 100%;
+        }
+
+        #answers{
+            height: 500px;
+            display: grid;
+            grid-template-areas: "a""b""c""d";
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr;
+        }
+        #answer_section{
+            background: rgb(54, 54, 168);
+            width: 100%;
+            height:100%;
+        }
+        #stats_section{
+            width:100%;
+        }
+}
 
     </style>
 </head>
@@ -123,6 +266,9 @@
         <!-- <input type="search" name="search_country" id="search_field"> -->
         <!-- <ul id="suggestion_list"></ul> -->
         <div id="selection">
+            <form action="#">
+                <input type="checkbox" class="all selectClass" name="continent" value="all"> All
+            </form>
             <form action="#">
                 <input type="checkbox" class="selectClass" name="continent" value="asia"> Asia
                 <div class="subclass">
@@ -165,17 +311,31 @@
         </div>
 
         <div id="answer_section">
-            <h1>What is the capital of <span id="country"></span></h1>
+            <h3 id="header_text">What is the capital of...</h3>
+            <h2 id="country"></h2>
             <div id="answers">
                 <div class="answer"></div>
                 <div class="answer"></div>
                 <div class="answer"></div>
                 <div class="answer"></div>
             </div>
+            <svg id="correct" viewbox="0 0 70 70" width="50px">
+                    <path id="correct_1" style="fill: darkgreen;" d="M 26.474 70 c -2.176 0 -4.234 -1.018 -5.557 -2.764 L 3.049 43.639 C 0.725 40.57 1.33 36.2 4.399 33.875 c 3.074 -2.326 7.441 -1.717 9.766 1.35 l 11.752 15.518 L 55.474 3.285 c 2.035 -3.265 6.332 -4.264 9.604 -2.232 c 3.268 2.034 4.266 6.334 2.23 9.602 l -34.916 56.06 c -1.213 1.949 -3.307 3.175 -5.6 3.279 C 26.685 69.998 26.58 70 26.474 70 Z" />
+                
+            </svg>
+            <svg id="wrong" viewbox="0 0 250 250" width="50px">
+                    <path id="wrong_1" style="fill: darkred;" d="M 7.079 214.851 l 25.905 26.276 c 9.536 9.674 25.106 9.782 34.777 0.252 l 56.559 -55.761 l 55.739 56.548 c 9.542 9.674 25.112 9.782 34.78 0.246 l 26.265 -25.887 c 9.674 -9.536 9.788 -25.106 0.246 -34.786 l -55.742 -56.547 l 56.565 -55.754 c 9.667 -9.536 9.787 -25.106 0.239 -34.786 L 216.52 8.375 c -9.541 -9.667 -25.111 -9.782 -34.779 -0.252 l -56.568 55.761 L 69.433 7.331 C 59.891 -2.337 44.32 -2.451 34.65 7.079 L 8.388 32.971 c -9.674 9.542 -9.791 25.106 -0.252 34.786 l 55.745 56.553 l -56.55 55.767 C -2.343 189.607 -2.46 205.183 7.079 214.851 Z" />
+            </svg>
+        </div>
+
+        <div id="stats_section">
+            <button id="stats_btn">Back to Selection</button>
         </div>
     </div>
 
 
     <script src="test.js"></script>
+    <script>
+    </script>
 </body>
 </html>
