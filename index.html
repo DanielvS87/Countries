@@ -17,12 +17,11 @@
         body{
             width: 100vw;
             height: 100vh;
-            overflow: hidden;
         }
 
         .wrapper{
             width: 100%;
-            overflow: hidden;
+            overflow:auto;
         }
         .subclass{
             margin-left: 20px;
@@ -69,6 +68,7 @@
             transform : translate(-50%, 0%);
             box-shadow: 0px 0px 2px rgba(51, 51, 51, 0.205);
             z-index: 3;
+            overflow: auto;
         }
 
         #suggestion_list{
@@ -161,6 +161,10 @@
             box-shadow: 0px 0px 2px rgba(51, 51, 51, 0.205);
         }
 
+        #start_btn{
+            margin-bottom: 50px;
+        }
+
         /* .answer{
             position: relative;
             overflow: hidden;
@@ -225,6 +229,8 @@
             transform: translateX(-50%);
             box-shadow: 0px 0px 2px rgba(51, 51, 51, 0.205);
             z-index: 5;
+            overflow: auto;
+            padding-bottom: 50px;
         }
 
         #selection.moved{
