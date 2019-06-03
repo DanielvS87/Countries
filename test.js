@@ -1,20 +1,91 @@
-const countries = {
-    country_profiles: {},
-    country_names: [],
-    countries_left: [],
-    current_country: document.getElementById("country"),
-    answers: Array.from(document.getElementsByClassName("answer")),
+window.onload = function(){
+        setup.add_listeners();
+}
 
-    names_array() { 
-        let arr = [];
-        Object.keys(this.country_profiles).forEach(key=>arr.push(key));
-        return arr;
+class Country {
+    constructor(continent, region, country, capital){
+        this.continent = continent;
+        this.region = region;
+        this.country = country;
+        this.capital = capital;
+        this.exclude = ["and", "the", "of", "la", "au"];
+    };
+
+    modify_string(attr){
+        let name_array, name;  
+        name_array = this[attr].split("_");
+        name_array = name_array.map(it=>{
+            return ((!this.exclude.includes(it)) ? it[0].toUpperCase() + it.slice(1) : it)
+        })
+        name = name_array.join(" ");
+        return name;
+    };
+
+    get_elem(elem){
+        return this.modify_string(elem);
+    }
+}
+
+const countries = {
+    answer_loc : Array.from(document.getElementsByClassName("answer")),
+    country_loc : document.getElementById("country"),
+    country_list: undefined,
+    country_names: undefined,
+    countries_left: undefined,
+    current_country: undefined,
+    answers: undefined,
+
+    fill_arrays(){
+        this.country_names = this.country_list.map(it=>it.get_elem("country"));
+        this.countries_left = this.country_names;
     },
 
-    get_random_index(array) { return Math.floor(Math.random()*array) }, 
+    random_index(arr){
+        const length = arr.length
+        return Math.floor(Math.random()*length);
+    },
 
-    add_listener() {
-        this.answers.map((it)=>{it.addEventListener("click", this.check_answer.bind(this))});
+    get_random_country(){
+        const index = this.random_index(this.country_list);
+        const country_name = this.countries_left[index];
+        this.current_country = this.country_list.filter(it=>{
+            return (it.get_elem("country")===country_name)
+        })[0];
+    },
+
+    get_random_array(){
+        let array = [this.current_country.get_elem("capital")];
+        const region_arr = this.country_list.filter(it=>{
+            return (it.get_elem("region")===this.current_country.get_elem("region"))
+        });
+        const continent_arr = this.country_list.filter(it=>{
+            return (it.get_elem("continent")===this.current_country.get_elem("continent"))
+        });
+        while(array.length!=4){
+            if(region_arr.length!=0){
+                array.push(region_arr[this.random_index(region_arr)].get_elem("capital"));
+            } else {
+                array.push(continent_arr[this.random_index(continent_arr)].get_elem("capital"));
+            }
+        }
+        this.answers = this.shuffle(array);
+    },
+
+    place_question(){
+        if(this.countries_left!=0){
+            this.get_random_country();
+            this.get_random_array();
+            this.add_answers();
+            animations.move_select();
+            animations.show_answers();
+        }else{
+            alert("no more countries");
+        }
+    },
+
+    add_answers(){
+        this.answer_loc.map((it, i)=>it.innerHTML = this.answers[i]);
+        this.country_loc. innerHTML = this.current_country.get_elem("country");
     },
 
     shuffle(array) {
@@ -29,207 +100,148 @@ const countries = {
         return array;
     },
 
-    get_four_unique_countries() {
-        let countries = [];
-        let arr1 = this.countries_left;
-        let arr2 = this.country_names;
-        countries.push(arr1[this.get_random_index(arr1.length)]);
-        let correct_country = countries[0];
-        while(countries.length!==4){
-            let country = arr2[this.get_random_index(arr2.length)];
-            (!countries.includes(country)) && countries.push(country);
+    async check_answer(e){
+        const answer = e.target.textContent;
+        if(answer===countries.current_country.get_elem("capital")){
+            animations.correct()
+        } else {
+            animations.wrong()
         }
-        countries = this.shuffle(countries);
-        this.create_question([countries, correct_country]);
-        return [countries, correct_country];
-    },
-
-    create_question(arr) {
-        this.current_country.innerHTML = arr[1];
-        let selec = [];
-        Object.entries(this.country_profiles).forEach(entry=>{
-            (arr[0].includes(entry[0])) && selec.push(entry);
-        })
-        selec = this.shuffle(selec);
-        for(i=0;i<selec.length;i++){
-            this.answers[i].innerHTML = selec[i][1].capital;
-        }
-    },
-
-    async check_answer(e) {
-        let current = this.current_country.textContent;
-        let answer = e.target.innerHTML;
-        let correct_answer = this.country_profiles[current].capital;
-        (answer === correct_answer) ? await animations.result_anim(true) : await animations.result_anim(false);
-        let index = this.countries_left.indexOf(current);
-        this.countries_left.splice(index,1);
-        if(this.countries_left.length===0){
-            document.getElementById("answer_section").classList.add("moved");
-        } else{
-            this.get_four_unique_countries();
-            TweenMax.staggerTo(".answer", 1, {opacity:1, delay:0.5}, 0.25);
-            TweenMax.staggerFrom(".answer", 1, {x:-50, delay:0.5}, 0.25);
-        }
+        animations.hide_answers();
+        await animations.pause(3000);
+        countries.place_question();
     }
 }
 
-const set_up = {
-    continent_listener_class: Array.from(document.getElementsByClassName("selectClass")),
-    stats_btn : document.getElementById("stats_btn"),
-    all_selection: document.querySelector(".all"),
-    selection_btn: document.getElementById("select_button"),
-    all_continent_options: Array.from(document.getElementsByClassName("selectClass")),
-    all_region_options: Array.from(document.getElementsByClassName("sub_cat")),
-    checked_continents: [],
-    checked_regions: [],
-    
-    addListener() {
-        this.continent_listener_class.map((it)=>{
-            it.addEventListener("change", this.show_sub_class.bind(this))
-        })
-        this.selection_btn.addEventListener("click", this.get_selection.bind(this));
-        countries.add_listener();
-        this.stats_btn.addEventListener("click", this.return_to_selection.bind(this));
-    },
+const setup = {
+    answers_loc: Array.from(document.getElementsByClassName("answer")),
+    all_continents_check: Array.from(document.getElementsByClassName("selectClass")),
+    all_regions_check: Array.from(document.getElementsByClassName("sub_cat")),
+    all_check: document.querySelector(".all"),
+    start_btn: document.getElementById("start_btn"),
+    checked_continents: undefined,
+    checked_regions: undefined,
+    is_checked: undefined,
+    data: undefined,
 
-    return_to_selection(){
-        document.getElementById("answer_section").classList.remove("moved");
-        document.getElementById("selection").classList.remove("moved");
-        this.all_continent_options.map(it=>it.checked=false);
-        this.checked_continents = [];
-        this.checked_regions = [];
-        this.all_region_options.map(it=>it.checked=false);
-        this.all_selection.checked=false;
-        countries.country_profiles = {};
-        countries.countries_left = [];
-        countries.country_names = [];
-        countries.current_country;
-    },
-
-    get_selection(){
-        this.get_checked(this.all_continent_options, this.checked_continents);
-        this.get_checked(this.all_region_options, this.checked_regions);
-        // make sure there are always at least four countries in the checked_regions array
-        (this.checked_regions.length===1 && this.checked_regions[0]==='north_america') && this.checked_regions.push('central_america');
-        (this.checked_regions.length===1 && this.checked_regions[0]==='new_zealand_and_australia') && this.checked_regions.push('polynesia');
-        if(this.checked_continents.length===0 || this.checked_regions.length===0){
-            alert('select at least one continent and one region');
-        } else{
-            this.get_countries();
-        }
-    },
-
-    async get_countries() {
-        let coun;
-        await fetch('./population.json')
-        .then(res => res.json())
-        .then(output => {
-           
-        coun = output;
-        })
-        Object.entries(coun).forEach((entry)=>{
-            let continent = entry[0];
-            (this.checked_continents).includes(entry[0]) && Object.entries(entry[1].regions).forEach((entry)=>{
-                let region = entry[0];
-                (this.checked_regions).includes(entry[0]) && Object.entries(entry[1].countries).forEach((entry)=>{
-                    countries.country_profiles[entry[0]] = {
-                        region: region,
-                        capital: entry[1].capital,
-                        continent : continent,
-                    };
-                });
-            });
+    add_listeners(){
+        this.all_continents_check.map((it)=>{
+            it.addEventListener("change", this.toggle_sub_cat.bind(this));
         });
-        // await animations.move_section();
-        document.getElementById('selection').classList.add('moved');
-        countries.country_names = countries.names_array();
-        countries.countries_left = countries.names_array();
-        TweenMax.staggerTo(".answer", 1, {opacity:1, delay:0.5}, 0.25);
-        TweenMax.staggerFrom(".answer", 1, {x:-50, delay:0.5}, 0.25);
-        countries.get_four_unique_countries();
+        this.start_btn.addEventListener("click", this.start_quiz.bind(this));
+        this.answers_loc.map(it=>it.addEventListener("click", countries.check_answer.bind(this)));
     },
 
-    get_checked(arr1, arr2){ 
-        arr1.map((it)=>(it.checked) && arr2.push(it.value))
+    check_all(){
+        this.all_continents_check.map(it=>it.checked=this.is_checked);
+        this.all_regions_check.map((it)=>{
+            it.checked = this.is_checked;
+            it.disabled = !this.is_checked;
+        })
     },
 
-    show_sub_class(e){
-        let elem = e.target;
-        if(elem.classList.contains('all') && elem.checked){
-            elem.checked=false
-            this.all_continent_options.map((it)=>it.checked=true);
-            this.all_region_options.map((it)=>{
-                it.checked=true;
-                it.disabled=false;
-            })
-        } else if (elem.classList.contains('all') && !elem.checked) {
-            elem.checked=true;
-            this.all_continent_options.map((it)=>it.checked=false);
-            this.all_region_options.map((it)=>{
-                it.checked=false;
-                it.disabled=true;
-            })
+    specific_check(elem){
+        this.all_check.checked = false;
+        let children = Array.from(elem.nextElementSibling.children);
+        children = children.filter(it=>it.classList.contains("sub_cat"));
+        if(this.is_checked){
+            children.map(it=>it.disabled=!this.is_checked);
         } else {
-            this.all_selection.checked = false;
-            (elem.checked) && (!elem.checked);
-            let a = Array.from(elem.nextElementSibling.children);
-            a = a.filter(it=>(it.classList.contains("sub_cat")));
-            if(!elem.checked){
-                a.map(it=>it.disabled=true);
-                a = a.map(it=>it.checked=false);
-    
-            } else {
-                a.map(it=>it.disabled=false);
-            }
+            children.map(it=>{
+                it.disabled=!this.is_checked;
+                it.checked=this.is_checked
+            });
         }
-    }
+    },
+
+    toggle_sub_cat(e){
+        let elem = e.target;
+        this.is_checked = (elem.checked) ? true : false;
+        (elem.classList.contains("all")) ? this.check_all()  :
+        this.specific_check(elem);
+    },
+
+    get_checked(){
+        this.checked_continents = this.all_continents_check.filter(it=>it.checked)
+        .filter(it=>it.value !== "all")
+        .map(it=>it.value);
+        this.checked_regions = this.all_regions_check.filter(it=>it.checked).
+        map(it=>it.value);
+
+        // need to add an extra country is array is just north america or australia and new zealand
+    },
+
+    async start_quiz(){
+        this.get_checked();
+        if(this.checked_continents.length !== 0 || this.checked_regions.length !==0){
+            this.data = await this.get_data();
+        } else {
+            alert("error");
+        }
+        countries.country_list = this.get_countries();
+        countries.fill_arrays();
+        countries.place_question();
+    },
+
+    get_data(){
+        let data = fetch("./population.json")
+        .then(res=>res.json())
+        .then(output=>output)
+        return data;
+    },
+
+    get_countries(){
+        let country_array = [];
+        Object.entries(this.data).forEach(it=>{
+            const continent = it[0];
+            (this.checked_continents.includes(continent)) && Object.entries(it[1].regions).forEach(it=>{
+                const region = it[0];
+                (this.checked_regions.includes(region)) && Object.entries(it[1].countries).forEach(it=>{
+                    let country = new Country(continent, region, it[0], it[1].capital)
+                    country_array.push(country);
+                })
+            })
+        })
+        return country_array;
+    },
 }
 
 const animations = {
-    selection : document.getElementById("selection"),
-    answer_section : document.getElementById("answer_section"),
+    selection: document.getElementById("selection"),
+    answer_loc: Array.from(document.getElementsByClassName("answer")),
+    correct_loc: document.getElementById("correct"),
+    wrong_loc: document.getElementById("wrong"),
 
 
-    move_section(){ 
-        // return new Promise(resolve => {
-        //     TweenMax.to(this.selection, 0.5, {css:{y:'100%'}});
-        //     TweenMax.to(this.answer_section, 0.5, {css:{y:0}, delay:0.1});
-        //     setTimeout(() => {
-        //       resolve('');
-        //     }, 1000);
-        // });
+    show_answers(){
+        TweenMax.staggerTo(this.answer_loc, 1, {opacity:1, delay:1}, 0.25);
     },
 
-
-    show_elements(){
-        console.log(
-            this.selection,
-            this.answer_section
-        )
+    hide_answers(){
+        TweenMax.staggerTo(this.answer_loc, 1, {opacity:0, delay:0.3}, 0.25);
     },
 
-    result_anim(res){
-        if(res){
-            TweenMax.to("#correct", 1, {width:500, opacity:1,});
-            TweenMax.to("#correct", 0.2, {width:400, delay:1});
-            TweenMax.to("#correct", 1, {width:0, opacity:0, delay:1.2});
-        } else {
-            TweenMax.to("#wrong", 1, {width:500, opacity:1,});
-            TweenMax.to("#wrong", 0.2, {width:400, delay:1});
-            TweenMax.to("#wrong", 1, {width:0, opacity:0, delay:1.2});
-        }
-        TweenMax.to(".answer", 1, {opacity:0})
-        return new Promise(resolve => {
-            setTimeout(() => {
-              resolve('');
-            }, 2200);
-        });
+    move_select(){
+        TweenMax.to(this.selection, 0.5, {css:{transform:`translate(-50%,-100%)`}});
     },
 
-    get_options_anim(){
+    correct(){
+        TweenMax.to(this.correct_loc, 1, {width:500, opacity:1,});
+        TweenMax.to(this.correct_loc, 0.2, {width:400, delay:1});
+        TweenMax.to(this.correct_loc, 1, {width:0, opacity:0, delay:1.2});
+    },
 
+    wrong(){
+        TweenMax.to(this.wrong_loc, 1, {width:500, opacity:1,});
+        TweenMax.to(this.wrong_loc, 0.2, {width:400, delay:1});
+        TweenMax.to(this.wrong_loc, 1, {width:0, opacity:0, delay:1.2});
+    },
+    
+    pause(number){
+        return new Promise(resolve=>{
+            setTimeout(()=>{
+                resolve('')
+            },number);
+        })
     }
 }
-
-set_up.addListener();
-
