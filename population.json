@@ -754,46 +754,209 @@
         }
     },
     "europe":{
-        "population": 0,
+        "population": 743959329,
         "regions":{
             "western_europe":{
-                "population": 0,
+                "population": 194608349,
                 "countries":{
                     "austria":{
-                        "population":0,
+                        "population":8764241,
                         "capital":"vienna"
                     },
                     "belgium":{
-                        "population":0,
+                        "population":11556939,
                         "capital":"brussels"
                     },
                     "france":{
-                        "population":0,
+                        "population":65457050,
                         "capital":"paris"
                     },
                     "germany":{
-                        "population":0,
+                        "population":82426214,
                         "capital":"berlin"
                     },
                     "liechtenstein":{
-                        "population":0,
-                        "capital":""
+                        "population":38404,
+                        "capital":"vaduz"
                     },
                     "luxembourg":{
-                        "population":0,
-                        "capital":""
+                        "population":596257,
+                        "capital":"luxembourg"
                     },
                     "monaco":{
-                        "population":0,
-                        "capital":""
+                        "population":39102,
+                        "capital":"monaco"
                     },
                     "netherlands":{
-                        "population":0,
+                        "population":17128323,
                         "capital":"amsterdam"
                     },
                     "switzerland":{
-                        "population":0,
+                        "population":8601819,
                         "capital":"bern"
+                    }
+                }
+            },
+            "northern_europe":{
+                "population":104964740,
+                "countries":{
+                    "denmark":{
+                        "population":5773124,
+                        "capital": "copenhagen"
+                    },
+                    "estonia":{
+                        "population":1304113,
+                        "capital": "tallinn"
+                    },
+                    "finland":{
+                        "population":5559569,
+                        "capital": "helsinki"
+                    },
+                    "iceland":{
+                        "population":340321,
+                        "capital": "reykjavik"
+                    },
+                    "ireland":{
+                        "population":4843569,
+                        "capital": "dublin"
+                    },
+                    "latvia":{
+                        "population":1912963,
+                        "capital": "riga"
+                    },
+                    "lithuania":{
+                        "population":2865894,
+                        "capital": "vulnius"
+                    },
+                    "norway":{
+                        "population":5396086,
+                        "capital": "oslo"
+                    },
+                    "sweden":{
+                        "population":10046450,
+                        "capital": "stockholm"
+                    },
+                    "united_kingdom":{
+                        "population":66922651,
+                        "capital": "london"
+                    }
+                }
+            },
+            "southern_europe":{
+                "population":151743919,
+                "countries":{
+                    "albania":{
+                        "population":2938148,
+                        "capital":"tirana"
+                    },
+                    "andorra":{
+                        "population":77072,
+                        "capital":"andorra_la_vella"
+                    },
+                    "bosnia_and_herzegovina":{
+                        "population":3502509,
+                        "capital":"sarajevo"
+                    },
+                    "croatia":{
+                        "population":4142458,
+                        "capital":"zagreb"
+                    },
+                    "gibraltar":{
+                        "population":32194,
+                        "capital":"gibraltar"
+                    },
+                    "greece":{
+                        "population":11126983,
+                        "capital":"athens"
+                    },
+                    "vatican_city":{
+                        "population":799,
+                        "capital":"vatican_city"
+                    },
+                    "italy":{
+                        "population":59224190,
+                        "capital":"rome"
+                    },
+                    "macedonia":{
+                        "population":2086615,
+                        "capital":"skopje"
+                    },
+                    "malta":{
+                        "population":433140,
+                        "capital":"valetta"
+                    },
+                    "montenegro":{
+                        "population":629320,
+                        "capital":"podgorica"
+                    },
+                    "portugal":{
+                        "population":10258376,
+                        "capital":"lisbon"
+                    },
+                    "san_marino":{
+                        "population":33344,
+                        "capital":"san_marino"
+                    },
+                    "serbia":{
+                        "population":8736277,
+                        "capital":"belgrade"
+                    },
+                    "slovenia":{
+                        "population":2081830,
+                        "capital":"ljubljana"
+                    },
+                    "spain":{
+                        "population":46440664,
+                        "capital":"madrid"
+                    }
+                }
+            },
+            "eastern_europe":{
+                "population":292642321,
+                "countries":{
+                    "cyprus":{
+                        "population":1197552,
+                        "capital":"nicosia"
+                    },
+                    "belarus":{
+                        "population":9435379,
+                        "capital":"minsk"
+                    },
+                    "bulgaria":{
+                        "population":6993289,
+                        "capital":"sofia"
+                    },
+                    "czech_republic":{
+                        "population":10630204,
+                        "capital":"prague"
+                    },
+                    "hungary":{
+                        "population":9658546,
+                        "capital":"budapest"
+                    },
+                    "poland":{
+                        "population":38035383,
+                        "capital":"warsaw"
+                    },
+                    "moldova":{
+                        "population":4030765,
+                        "capital":"chisinau"
+                    },
+                    "romania":{
+                        "population":19492635,
+                        "capital":"bucharest"
+                    },
+                    "russia":{
+                        "population":143901641,
+                        "capital":"moskow"
+                    },
+                    "slovakia":{
+                        "population":5450847,
+                        "capital":"bratislava"
+                    },
+                    "ukraine":{
+                        "population":43816080,
+                        "capital":"kiev"
                     }
                 }
             }
