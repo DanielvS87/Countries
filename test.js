@@ -46,10 +46,10 @@ const countries = {
     },
 
     get_random_country(){
-        const index = this.random_index(this.country_list);
+        const index = this.random_index(this.countries_left);
         const country_name = this.countries_left[index];
         this.current_country = this.country_list.filter(it=>{
-            return (it.get_elem("country")===country_name)
+            return (it.get_elem("country")===country_name);
         })[0];
     },
 
