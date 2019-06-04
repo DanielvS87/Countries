@@ -63,9 +63,11 @@ const countries = {
         });
         while(array.length!=4){
             if(region_arr.length!=0){
-                array.push(region_arr[this.random_index(region_arr)].get_elem("capital"));
+                let capital = region_arr[this.random_index(region_arr)].get_elem("capital");
+                (!array.includes(capital)) && array.push(capital);
             } else {
-                array.push(continent_arr[this.random_index(continent_arr)].get_elem("capital"));
+                let capital = continent_arr[this.random_index(continent_arr)].get_elem("capital");
+                (!array.includes(capital)) && array.push(capital);
             }
         }
         this.answers = this.shuffle(array);
@@ -78,6 +80,9 @@ const countries = {
             this.add_answers();
             animations.move_select();
             animations.show_answers();
+            this.countries_left = this.countries_left.filter(it=>{
+                return (this.current_country.get_elem("country")!==it);
+            });
         }else{
             alert("no more countries");
         }
